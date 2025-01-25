@@ -21,7 +21,7 @@ const aboutEmbed = new EmbedBuilder()
     },
     {
       name: '💡 Tips',
-      value: `- Use </stomach:1209826330628071467> to see how many broccoli you've eaten.\n- Use </leaderboard:1209826330628071468> to see the top 10 contestants.`,
+      value: `- Use </stomach:1210988958800941088> to see how many broccoli you've eaten.\n- Use </leaderboard:1210988958800941089> to see the top 10 contestants.`,
     }
   )
 export default aboutEmbed
