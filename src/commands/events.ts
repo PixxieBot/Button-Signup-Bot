@@ -31,10 +31,11 @@ export const execute = async (
     return interaction.reply({
       embeds: [
         infoEmbed(
-          'Our birthday celebreations are over!',
-          'Sign up for notifications of future events and giveaways in <#966027989374627840>'
+          'Our birthday celebrations are over!',
+          'Sign up for notifications of future events and giveaways in <id:customize>'
         ),
       ],
+      ephemeral: true,
     })
   if (!guildEvents?.size) return
   const eventSchedule: Array<InteractionReplyOptions> = guildEvents.map((e) => {
