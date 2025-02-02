@@ -22,7 +22,7 @@ export async function generateGifts(client: Client) {
     })
 
   const spawnChannel = spawnGuild(client)?.channels.cache.find(
-    (c) => c.name === 'dev-testing'
+    (c) => c.name === 'general'
   ) as GuildTextBasedChannel
 
   function spawnGift() {
