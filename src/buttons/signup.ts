@@ -26,8 +26,8 @@ export const execute = async (
 
   // Check if the user is already signed up
   const res = await query(
-    'SELECT * FROM pixxiebotbday.catfight_tournament_signup WHERE userid = $1',
-    [interaction.user.id]
+    'SELECT * FROM events.catfight_signups WHERE userid = $1 AND eventid = $2',
+    [interaction.user.id, interaction.message.id]
   )
   if (res.rows.length)
     return interaction.reply({
@@ -39,8 +39,8 @@ export const execute = async (
 
   // Check if there's space to join and reject if reserve slots are full
   const dbCount = await query(
-    'SELECT COUNT(*) FROM pixxiebotbday.catfight_tournament_signup',
-    []
+    'SELECT COUNT(*) FROM events.catfight_signups WHERE eventid = $1',
+    [interaction.message.id]
   )
   const oldCount = parseInt(dbCount.rows[0].count)
   if (oldCount >= maxSignups + reserveSignups)
@@ -94,11 +94,13 @@ export const execute = async (
     })
 
   query(
-    `INSERT INTO pixxiebotbday.catfight_tournament_signup (userid, username, joinedat) VALUES ($1, $2, $3)`,
+    `INSERT INTO events.catfight_signups (timestamp, userid, eventid, channelid, username) VALUES ($1, $2, $3, $4, $5)`,
     [
-      interaction.user.id,
-      interaction.user.username,
       interaction.createdTimestamp,
+      interaction.user.id,
+      interaction.message.id,
+      interaction.channel.id,
+      interaction.user.username,
     ]
   )
   return

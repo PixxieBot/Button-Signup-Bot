@@ -9,17 +9,18 @@ import {
   SlashCommandBuilder,
 } from 'discord.js'
 import { emoji } from '../utils/emojis'
+import { isStaffMember } from '../utils/perms/isStaffMember'
 
 export const command = new SlashCommandBuilder()
   .setName('signup')
-  .setDescription('Allows Mac to create a signup message')
+  .setDescription('Allows Staff to create a signup message')
   .setDMPermission(false)
 
 export const execute = async (
   _client: Client,
   interaction: CommandInteraction
 ) => {
-  if (interaction.user.id !== '491002268401926145') return
+  if (!isStaffMember(interaction.user.id)) return
   const signupChannel = interaction.channel as GuildTextBasedChannel
 
   const sEmbed = new EmbedBuilder()

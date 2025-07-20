@@ -15,8 +15,8 @@ const questionTimer = 30000
 const giftGenMin = 3600000
 const giftGenMax = 7200000
 
-const maxSignups = 100
-const reserveSignups = 20
+const maxSignups = 200
+const reserveSignups = 50
 
 export {
   spawnGuild,
