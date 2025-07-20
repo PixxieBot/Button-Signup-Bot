@@ -1,6 +1,5 @@
 import { Client, Partials, GatewayIntentBits } from 'discord.js'
 import commandHandler from './commandHandler'
-import { generateGifts } from './utils/automation/generateGifts'
 
 // Configure client
 const client = new Client({
@@ -30,12 +29,11 @@ client.on('ready', async () => {
     status: 'online',
     activities: [
       {
-        name: 'you party! 🎉',
+        name: 'you fight 💅',
         type: 3,
       },
     ],
   })
-  generateGifts(client)
 })
 
 // Register commands

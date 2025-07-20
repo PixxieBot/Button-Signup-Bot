@@ -20,7 +20,7 @@ export const execute = async (
   _client: Client,
   interaction: CommandInteraction
 ) => {
-  if (!isStaffMember(interaction.user.id)) return
+  if (!isStaffMember(interaction.user)) return
   const signupChannel = interaction.channel as GuildTextBasedChannel
 
   const sEmbed = new EmbedBuilder()

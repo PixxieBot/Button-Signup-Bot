@@ -99,7 +99,7 @@ export const execute = async (
       interaction.createdTimestamp,
       interaction.user.id,
       interaction.message.id,
-      interaction.channel.id,
+      interaction.channel?.id ?? '0',
       interaction.user.username,
     ]
   )
