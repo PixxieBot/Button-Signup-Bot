@@ -35,7 +35,7 @@ export const execute = async (
   const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
     new ButtonBuilder()
       .setCustomId(`signup_catfight`)
-      .setEmoji('🔥')
+      .setEmoji('1396521925974429716')
       .setStyle(ButtonStyle.Success)
       .setLabel(`Sign Up`)
   )
