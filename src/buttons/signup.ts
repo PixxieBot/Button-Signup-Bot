@@ -58,7 +58,7 @@ export const execute = async (
   const newCount = oldCount + 1 >= maxSignups ? maxSignups : oldCount + 1
 
   const oldEmbed = interaction.message.embeds[1]
-  if (oldEmbed && newCount !== maxSignups) {
+  if (oldEmbed && (newCount <= maxSignups)) {
     const newEmbed = { ...oldEmbed.toJSON() } // Convert the embed to JSON and clone it
     newEmbed.title = `${newCount} angry cats have signed up!`
 
